@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Tmobile">
+
+
+    <listeners>
+        <listener class-name="utils.testng.listeners.TestListener"/>
+        <listener class-name="utils.testng.listeners.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="test">
+        <classes>
+
+            <class name="tests.AddSmartWatchToBasketTest"/>
+            <class name="tests.ApiTest"/>
+
+
+        </classes>
+
+    </test>
+
+</suite>
