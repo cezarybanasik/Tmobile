@@ -1,6 +1,7 @@
 package tests;
 
 
+import data.provider.Data;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -16,8 +17,8 @@ import static io.restassured.RestAssured.when;
 import static org.testng.Assert.assertEquals;
 
 public class ApiTest {
-    @Test
-    public void WeatherMessageBody() throws IOException, JSONException {
+    @Test(dataProvider="CurrencyProvider",dataProviderClass= Data.class)
+    public void CurrencyTest(String codeValue, String currencyValue, int valueMin, int valueMax) throws  JSONException {
 
 
         RestAssured.baseURI = "http://api.nbp.pl/";
@@ -56,24 +57,24 @@ public class ApiTest {
                 System.out.println(code + " " + mid);
 
 
-                if (code.equals("USD")) {
-                    System.out.println("---------------- KURSY DLA SPECJALNEJ WALUTY USD --------------------");
+                if (code.equals(codeValue)) {
+                    System.out.println("---------------- KURSY DLA SPECJALNEJ WALUTY " +codeValue+ " --------------------");
                     System.out.println(code + " " + mid);
 
                 }
 
-                if (currency.equals("dolar amerykański")) {
-                    System.out.println("---------------- KURSY DLA WALUTY DOLAR AMERYKAŃSKI --------------------");
+                if (currency.equals(currencyValue)) {
+                    System.out.println("---------------- KURSY DLA WALUTY "+currencyValue+ " --------------------");
                     System.out.println(currency + " " + mid);
                 }
 
-                if (Double.parseDouble(mid) > 5) {
-                    System.out.println("---------------- KURSY POWYŻEJ WARTOSCI 5 --------------------");
+                if (Double.parseDouble(mid) > valueMin) {
+                    System.out.println("---------------- KURSY POWYŻEJ WARTOSCI " +valueMin+ " --------------------");
                     System.out.println(code + " " + mid);
                 }
 
-                if (Double.parseDouble(mid) < 3) {
-                    System.out.println("---------------- KURSY PONIŻEJ WARTOSCI 3 --------------------");
+                if (Double.parseDouble(mid) < valueMax) {
+                    System.out.println("---------------- KURSY PONIŻEJ WARTOSCI " +valueMax+ " --------------------");
                     System.out.println(code + " " + mid);
                 }
             }
