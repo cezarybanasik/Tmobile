@@ -1,15 +1,16 @@
 package tests;
 
 import driver.manager.DriverUtils;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import page.objects.*;
 import utils.testng.listeners.RetryAnalyzer;
+import utils.testng.listeners.TestListener;
 
 import static navigation.ApplicationURLs.APPLICATION_URL;
 
-
+@Listeners(TestListener.class)
 public class AddSmartWatchToBasketTest extends TestBase {
-
 
     @Test(priority = 1,
             description = "asUserTryAddSmartwatchToBasket",

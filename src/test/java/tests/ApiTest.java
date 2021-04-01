@@ -11,7 +11,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 
 import static io.restassured.RestAssured.when;
 import static org.testng.Assert.assertEquals;
