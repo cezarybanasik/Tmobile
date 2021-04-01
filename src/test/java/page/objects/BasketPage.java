@@ -24,7 +24,7 @@ public class BasketPage {
     public void assertNameProductInBasket() {
         WaitForElement.waitForVisibilityOfAllElements(productInBasket);
         System.out.println(productInBasket.get(0).getText());
-        assertEquals(productInBasket.get(0).getText(), "Xiaomi Mi Watch Lite");
+        assertEquals(productInBasket.get(0).getText(), "231232");
 
     }
 }
